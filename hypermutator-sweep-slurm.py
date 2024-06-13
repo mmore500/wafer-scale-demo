@@ -38,8 +38,12 @@ SLURM_ARRAY_JOB_ID = os.environ.get("SLURM_ARRAY_JOB_ID", "nojid")
 SLURM_JOB_ID = os.environ.get("SLURM_JOB_ID", "nojid")
 SLURM_ARRAY_TASK_ID = int(os.environ.get("SLURM_ARRAY_TASK_ID", "0"))
 
-print(f"HOME={HOME} SLURM_ARRAY_JOB_ID={SLURM_ARRAY_JOB_ID}")
-print(f"SLURM_JOB_ID={SLURM_JOB_ID} SLURM_ARRAY_TASK_ID={SLURM_ARRAY_TASK_ID}")
+print("HOME={} SLURM_ARRAY_JOB_ID={}".format(HOME, SLURM_ARRAY_JOB_ID))
+print(
+    "SLURM_JOB_ID={} SLURM_ARRAY_TASK_ID={}".format(
+        SLURM_JOB_ID, SLURM_ARRAY_TASK_ID
+    )
+)
 
 # %%
 params = [
@@ -50,7 +54,7 @@ params = [
 ]
 
 REPLICATE, LOG10_NPOP = params[SLURM_ARRAY_TASK_ID]
-print(f"REPLICATE={REPLICATE} LOG10_NPOP={LOG10_NPOP}")
+print("REPLICATE={} LOG10_NPOP={}".format(REPLICATE, LOG10_NPOP))
 
 # %%
 LOG2_MUT_P = -8
@@ -169,11 +173,13 @@ def evolvepop(yield_every: int = 1000):
 
 if __name__ == "__main__":
     outpath = f"{HOME}/SLURM_ARRAY_JOB_ID={SLURM_ARRAY_JOB_ID}"
-    print(f"outpath {outpath}")
+    print("outpath {}".format(outpath))
     os.makedirs(outpath, exist_ok=True)
 
-    outname = f"{outpath}/SLURM_ARRAY_TASK_ID={SLURM_ARRAY_TASK_ID}+ext=.csv"
-    print(f"outname {outname}")
+    outname = "{}/SLURM_ARRAY_TASK_ID={}+ext=.csv".format(
+        outpath, SLURM_ARRAY_TASK_ID
+    )
+    print("outname {}".format(outname))
 
     records = []
     for record in tqdm(evolvepop(), total=NGEN_MAX // NGEN_EVERY):
