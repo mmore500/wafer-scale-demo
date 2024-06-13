@@ -46,12 +46,12 @@ print(
 )
 
 # %%
-params = [
-    *it.product(
+params = list(
+    it.product(
         range(1000),
         np.linspace(2, 6.75, 20),
     ),
-]
+)
 
 REPLICATE, LOG10_NPOP = params[SLURM_ARRAY_TASK_ID]
 print("REPLICATE={} LOG10_NPOP={}".format(REPLICATE, LOG10_NPOP))
