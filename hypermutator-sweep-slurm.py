@@ -184,3 +184,5 @@ if __name__ == "__main__":
         df.to_csv(tempname, index=False)
         shutil.move(tempname, outname)
         shutil.rmtree(tempname, ignore_errors=True)
+
+print("JOBCOMPLETE", datetime.datetime.now())
