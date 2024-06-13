@@ -185,4 +185,5 @@ if __name__ == "__main__":
         shutil.move(tempname, outname)
         shutil.rmtree(tempname, ignore_errors=True)
 
-print("JOBCOMPLETE", datetime.datetime.now())
+
+    print("JOBCOMPLETE", datetime.datetime.now())
