@@ -172,7 +172,7 @@ def evolvepop(yield_every=1000):  # : int
 # %%
 
 if __name__ == "__main__":
-    outpath = f"{HOME}/SLURM_ARRAY_JOB_ID={SLURM_ARRAY_JOB_ID}"
+    outpath = "{}/SLURM_ARRAY_JOB_ID={}".format(HOME, SLURM_ARRAY_JOB_ID)
     print("outpath {}".format(outpath))
     os.makedirs(outpath, exist_ok=True)
 
