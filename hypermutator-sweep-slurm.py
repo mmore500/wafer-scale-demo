@@ -1,15 +1,13 @@
 #!/opt/software/Python/3.6.4-foss-2018a/bin/python3
-########## Define Resources Needed with SBATCH Lines ##########
-# SBATCH --time=1:00:00
-# SBATCH --job-name mutxplore
-# SBATCH --output="/mnt/home/%u/joblog/id=%j+ext.txt"
-# SBATCH --mem=4G
-# SBATCH --ntasks=1
-# SBATCH --cpus-per-task=1
-# SBATCH --mail-type=FAIL
-# SBATCH --array=0-799
-# Job may be requeued after node failure.
-# SBATCH --requeue
+#SBATCH --time=1:00:00
+#SBATCH --job-name mutxplore
+#SBATCH --output="/mnt/home/%u/joblog/id=%j+ext.txt"
+#SBATCH --mem=4G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mail-type=FAIL
+#SBATCH --array=0-799
+#SBATCH --requeue
 
 # %%
 import datetime
