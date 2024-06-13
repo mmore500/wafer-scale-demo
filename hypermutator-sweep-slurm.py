@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/opt/software/Python/3.6.4-foss-2018a/bin/python3
 ########## Define Resources Needed with SBATCH Lines ##########
 # SBATCH --time=1:00:00
 # SBATCH --job-name mutxplore
