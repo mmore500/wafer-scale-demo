@@ -88,7 +88,7 @@ def initpop():
 
 
 # %%
-def mutpop(pop: np.array):
+def mutpop(pop):  # : np.array
     m = pop[:, IDX_MUTATOR].astype(np.float64)
     pop[:, IDX_MUTATOR] += np.random.poisson(
         2 ** (LOG2_MUTATOR_P),
@@ -106,7 +106,7 @@ def mutpop(pop: np.array):
 
 
 # %%
-def selectpop(pop: np.array):
+def selectpop(pop):  # : np.array
     NSELECTED = int(NPOP * SELECTION_COEFFICIENT)
     NRANDOMIZED = NPOP - NSELECTED
 
@@ -134,7 +134,7 @@ def selectpop(pop: np.array):
 
 
 # %%
-def evolvepop(yield_every: int = 1000):
+def evolvepop(yield_every=1000):  # : int
 
     uu = uuid.uuid4()
     pop = initpop()
