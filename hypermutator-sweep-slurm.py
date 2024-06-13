@@ -142,15 +142,15 @@ def evolvepop(yield_every=1000):  # : int
 
         if gen % yield_every == 0:
             yield {
+                "REPLICATE": REPLICATE,
+                "NPOP": NPOP,
+                "NGEN": NGEN_MAX,
+                "generation": gen,
                 "LOG2_MUT_P": LOG2_MUT_P,
                 "LOG2_BENEFICIAL_P": LOG2_BENEFICIAL_P,
                 "LOG2_DELETERIOUS_P": LOG2_DELETERIOUS_P,
                 "LOG2_MUTATOR_P": LOG2_MUTATOR_P,
-                "NPOP": NPOP,
-                "NGEN": NGEN_MAX,
-                "generation": gen,
                 "SELECTION_COEFFICIENT": SELECTION_COEFFICIENT,
-                "REPLICATE": REPLICATE,
                 "mean beneficial": pop[:, IDX_BENEFICIAL].mean(),
                 "median beneficial": np.median(pop[:, IDX_BENEFICIAL]),
                 "min beneficial": np.min(pop[:, IDX_BENEFICIAL]),
