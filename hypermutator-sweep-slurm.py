@@ -75,7 +75,7 @@ SELECTION_COEFFICIENT = 0.1
 REPLICATE = 0
 
 # %%
-np.random.seed(REPLICATE)
+np.random.seed(SLURM_ARRAY_TASK_ID)
 
 
 # %%
