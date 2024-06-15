@@ -55,10 +55,10 @@ REPLICATE, LOG10_NPOP = params[SLURM_ARRAY_TASK_ID]
 print("REPLICATE={} LOG10_NPOP={}".format(REPLICATE, LOG10_NPOP))
 
 # %%
-LOG2_MUT_P = -8
-LOG2_BENEFICIAL_P = LOG2_MUT_P + -14
+LOG2_MUT_P = -13
+LOG2_BENEFICIAL_P = LOG2_MUT_P + -7
 LOG2_DELETERIOUS_P = LOG2_MUT_P + 0
-LOG2_MUTATOR_P = LOG2_MUT_P + -2
+LOG2_MUTATOR_P = LOG2_MUT_P + 3
 
 NPOP = int(10**LOG10_NPOP)
 
@@ -84,7 +84,7 @@ def initpop():
 
 # %%
 def mutpop(pop):  # : np.array
-    m = pop[:, IDX_MUTATOR].astype(np.float64)
+    m = np.log2(100) * pop[:, IDX_MUTATOR].astype(np.float64)
     pop[:, IDX_MUTATOR] += np.random.poisson(
         2 ** (LOG2_MUTATOR_P),
         NPOP,
