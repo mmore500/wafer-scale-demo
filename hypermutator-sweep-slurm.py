@@ -58,7 +58,7 @@ print("REPLICATE={} LOG10_NPOP={}".format(REPLICATE, LOG10_NPOP))
 LOG2_MUT_P = -13
 LOG2_BENEFICIAL_P = LOG2_MUT_P + -7
 LOG2_DELETERIOUS_P = LOG2_MUT_P + 0
-LOG2_MUTATOR_P = LOG2_MUT_P + 3
+LOG2_MUTATOR_P = LOG2_MUT_P + 0
 
 NPOP = int(10**LOG10_NPOP)
 
@@ -84,7 +84,7 @@ def initpop():
 
 # %%
 def mutpop(pop):  # : np.array
-    m = np.log2(100) * pop[:, IDX_MUTATOR].astype(np.float64)
+    m = np.log2(10) * pop[:, IDX_MUTATOR].astype(np.float64)
     pop[:, IDX_MUTATOR] += np.random.poisson(
         2 ** (LOG2_MUTATOR_P),
         NPOP,
