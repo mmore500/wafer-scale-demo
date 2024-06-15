@@ -1,5 +1,5 @@
 #!/opt/software/Python/3.6.4-foss-2018a/bin/python3
-#SBATCH --time=1:00:00
+#SBATCH --time=100:00:00
 #SBATCH --job-name mutxplore
 #SBATCH --output="/mnt/home/%u/joblog/id=%A_%a+ext.txt"
 #SBATCH --mem=4G
