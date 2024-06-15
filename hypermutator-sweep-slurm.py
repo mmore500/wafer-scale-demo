@@ -6,7 +6,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-type=FAIL
-#SBATCH --array=0-799
+#SBATCH --array=0-959
 #SBATCH --requeue
 
 # %%
@@ -47,7 +47,7 @@ print(
 params = list(
     it.product(
         range(1000),
-        np.linspace(2, 6.75, 20),
+        np.linspace(2, 7.75, 24),
     ),
 )
 
